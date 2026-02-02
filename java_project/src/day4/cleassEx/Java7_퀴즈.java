@@ -13,7 +13,7 @@ public class Java7_퀴즈 {
 		// *****
 		
 		
-		for(int j = 1; j <=5; j++) {
+		for(int j = 1; j <=5; j++) {  //j가 1~5만큼 반복되네~~
 			for(int i = 0; i < j; i++) {
 				System.out.print("*");
 			}
