@@ -23,9 +23,10 @@ public class Java8_퀴즈2_스스로복습 {
 		int oddCnt = 0;
 		int evenCnt = 0;
 		
+		// 정상로직부터 쭉 다 적어보고, 검증을 사이사이에 함. 
 		for(int i = 0; i < arr.length; i++) {
 			
-			int random = ran.nextInt(20) + 1; //1~20
+			int random = ran.nextInt(20) + 1; //1~20  랜덤한 숫자 뽑기
 			
 			//검증
 			if(random % 2 == 1) {
