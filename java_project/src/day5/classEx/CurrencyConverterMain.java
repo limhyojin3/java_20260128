@@ -6,7 +6,7 @@ public class CurrencyConverterMain {
 
 	public static void main(String[] args) {
 		
-		Scanner scanner= new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 		
 		System.out.print("환율(1달러)>> ");
 		double rate = scanner.nextDouble();
