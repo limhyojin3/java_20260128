@@ -5,6 +5,8 @@ public class Fruit {
 	private int price;
 	private int count;
 	
+	// 필드 아래에서 우클릭 -> source -> generate getter and setter.
+	
 	Fruit(String name, int price, int count){
 		this.name = name;
 		this.price = price;
