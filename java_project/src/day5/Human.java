@@ -2,12 +2,12 @@ package day5;
 
 public class Human {
 	
-	String name;
-	int age;
+	protected String name;
+	protected int age;
 	private String addr;
 	int money;
 	
-	Human(){
+	protected Human(){
 		
 	}
 	
