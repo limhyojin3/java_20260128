@@ -4,7 +4,7 @@ public class Java4_업캐스팅 {
 
 	static void fruitBoxing(Fruit f) {  //다형성
 		
-		if(f instanceof Apple) { // f 객체가 Apple 타입이라면
+		if(f instanceof Apple) { // f 객체가 Apple 타입이라면, (~부모타입이라면)
 			System.out.println("토마토 서비스로 드림");
 		}
 		

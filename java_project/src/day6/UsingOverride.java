@@ -12,7 +12,7 @@ public class UsingOverride {
 		last = start; 
 		
 		obj = new Rect();
-		last.next = obj; // Rect 객체 연결  //next 변수에 다음 객체의 주소를 담는다~
+		last.next = obj; // Rect 객체 연결  //next 변수에 다음 객체의 주소(참조값)를 담는다~
 		last = obj;
 		
 		obj = new Line(); // Line 객체 연결

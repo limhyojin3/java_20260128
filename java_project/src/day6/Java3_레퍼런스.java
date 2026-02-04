@@ -4,7 +4,6 @@ public class Java3_레퍼런스 {
 	
 	static void test1(String text) {
 		
-		
 	}
 	
 	static void test2(Employee e) {
