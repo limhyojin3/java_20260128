@@ -21,6 +21,7 @@ public class Java98_퀴즈풀이 {
 			int menu = s.nextInt();
 			
 			if(menu == 1) {
+				
 				System.out.println("문제 풀이를 선택하셨습니다. 정답에 0을 입력하면 메뉴로 이동합니다.");
 				
 				
@@ -46,17 +47,19 @@ public class Java98_퀴즈풀이 {
 						wrongAns++;
 					}
 				}
-			
-			
 			} else if (menu == 2) {
+				
 				System.out.println("현재까지 맞춘 정답 개수 : " + correctAns);
 				System.out.println("현재까지 틀린 정답 개수 : " + wrongAns);
 			} else if (menu == 3) {
+				
 				System.out.println("종료합니다.");
 				break;
 			} else {
+				
 				System.out.println("1~3번 메뉴를 선택해주세요.");
 			}
+			
 			
 		}
 		
