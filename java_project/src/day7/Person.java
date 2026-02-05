@@ -19,7 +19,7 @@ public class Person {
 		this(name, age);
 		this.phone = phone;
 	}
-
+	
 	public String getName() {
 		return name;
 	}
@@ -43,10 +43,21 @@ public class Person {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	
+
+	@Override
 	public String toString() {
-		return "name = " + name + " ,age = " + age + " ,phone = " + phone;
+		return name + "의 나이는 " + age +"살 입니다.";
 	}
 	
-
+	@Override
+	public boolean equals(Object obj) {  //Object obj = Person("홍길동", 30);
+		
+		Person p = (Person) obj;
+		return this.name == p.name;
+	}
+	
+	
+	
+	
+	
 }
