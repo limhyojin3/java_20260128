@@ -1,5 +1,7 @@
 package day8;
 
+import java.util.ArrayList;
+
 public class Java1_업캐스팅 {
 
 	static void test1(Point p) {
@@ -44,6 +46,9 @@ public class Java1_업캐스팅 {
 		
 		test1(colorPoint); //200
 		test1(point3d);
+		
+		ArrayList<Integer> list = new ArrayList();
+		
 	}
 
 }
