@@ -17,6 +17,7 @@ public class Quiz_8 {
 		Scanner s = new Scanner(System.in);
 		Random ran = new Random();
 		
+		
 		while(true) {
 			System.out.print("[1. 구구단 풀기, 2. 종료] : ");
 			int menu = s.nextInt();
@@ -27,10 +28,9 @@ public class Quiz_8 {
 					System.out.print("[1. 쉬움(2~5단), 2. 보통(6~9단), 3. 어려움(12~19단)] : ");
 					menu = s.nextInt();
 					
-					
+					System.out.println();
 					
 					if(menu == 1) {
-						System.out.println();
 						System.out.println("=== 문제풀이를 시작합니다(5문제) ===");
 						
 						int count = 0;
@@ -53,7 +53,6 @@ public class Quiz_8 {
 						break;
 						
 					} else if(menu == 2) { // 2. 보통(6~9단)
-						System.out.println();
 						System.out.println("=== 문제풀이를 시작합니다(5문제) ===");
 						
 						int count = 0;
@@ -77,7 +76,6 @@ public class Quiz_8 {
 						
 					} else if(menu ==3) { // 3. 어려움(12~19단)
 						
-						System.out.println();
 						System.out.println("=== 문제풀이를 시작합니다(5문제) ===");
 						
 						int count = 0;
@@ -118,3 +116,5 @@ public class Quiz_8 {
 	}
 
 }
+
+

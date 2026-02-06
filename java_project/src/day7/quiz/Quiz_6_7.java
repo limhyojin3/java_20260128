@@ -32,9 +32,9 @@ public class Quiz_6_7 {
 			
 			int duplicationKey = 0; //0은 거짓
 			
-			//중복 검증이 어렵네... ->일단 키를 만들어서해결.
+			//중복 검증이 어렵네... ->일단 키를 만들어서해결.                //cf. day3 Java17_배열 
 			//asdsadasdadsa
-			for(int j = 0; j < i; j++) { //arr[2] 0,1번  인덱스<2-> j<i
+			for(int j = 0; j < i; j++) { //arr[2] 0,1번  인덱스<2-> j<i      //코드 작성시 확장성 고려,,
 				
 				if(input == arr[j]) {  
 					System.out.println("중복된 숫자가 있습니다. 다른 숫자를 입력해주세요. ");
