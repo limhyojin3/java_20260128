@@ -21,7 +21,7 @@ public class CalendarEx {
 		int second = cal.get(Calendar.SECOND);
 		int millisecond = cal.get(Calendar.MILLISECOND);
 		
-		System.out.print(msg+ year + "/" + month + "/" + day + "/");
+		System.out.print(msg + year + "/" + month + "/" + day + "/");
 		
 		switch(dayOfWeek) {
 		case Calendar.SUNDAY :

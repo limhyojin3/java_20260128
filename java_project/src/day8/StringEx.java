@@ -20,7 +20,7 @@ public class StringEx {
 		a = a.replace("C#","Java"); // 문자열 대치(교체하기)
 		System.out.println(a);
 		
-		String s[] = a.split(","); // 문자열 분리 //[Java, C++]
+		String s[] = a.split(","); // **문자열 분리 //[Java, C++]
 		
 		for (int i = 0; i < s.length; i++) { //i<2  i=0,1반복
 			System.out.println("분리된 문자열" + i + ": " + s[i]);

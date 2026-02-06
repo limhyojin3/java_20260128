@@ -11,10 +11,10 @@ public class Java4_subString {
 		
 		String text = "Hello Java";
 		
-		String java = text.substring(6); //인덱스 6부터 끝까지
+		String java = text.substring(6); //인덱스 6부터 끝까지**
 		System.out.println(java);
 		
-		String hello = text.substring(0, 5); //인덱스 0부터 5번 전까지.(=0부터 4까지)
+		String hello = text.substring(0, 5); //인덱스 0부터 5번 전까지.(=0부터 4까지)**
 		System.out.println(hello);
 		
 		String temp = "java";
