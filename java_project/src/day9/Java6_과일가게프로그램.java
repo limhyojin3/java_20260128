@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class Java6_과일가게프로그램 {  //////////// (복습) ( )
+public class Java6_과일가게프로그램 {  //////////// (복습) (+)
 	
 	static Scanner s = new Scanner(System.in); //스캐너도 객체다! static 붙여주면 static메서드 안에서 사용가능!
 	
@@ -51,33 +51,38 @@ public class Java6_과일가게프로그램 {  //////////// (복습) ( )
 				// + 동일한 이름의 과일이 있을 경우
 				// 가격은 물어보지 않고, 개수만 입력 받아서 기존 개수에 더하기.
 				
-				HashMap<String, Object> fruit = new HashMap<>(); //fruit.get() -> Object타입을 반환
+				HashMap<String, Object> fruit = new HashMap<>(); //fruit.get() -> Object 타입을 반환
 					
-				Boolean fruitFlag = false; //동일한 이름 과일이 없다! boolean 활용 적극적으로!**
+				Boolean fruitFlag = false; ////동일한 이름의 과일이 없다! boolean 활용 적극적으로!**
 										   //(if-else)랑 비슷한 느낌으로. 그렇지만 검증에 가까움!
+										   // 흐름 제어용!!
 				
 				System.out.print("과일 이름 : ");
 				String name = s.next();
 				fruit.put("name", name);
 					
-				for(int i = 0; i <list.size(); i++) {
-					HashMap<String, Object> map = list.get(i);
+				for(int i = 0; i <list.size(); i++) { //list.size 만큼 반복. list.size가 2면, 2번반복,, i는 인덱스
+					HashMap<String, Object> map = list.get(i); //x001,x002
 					
-					if(map.get("name").equals(name)) {
+					if(map.get("name").equals(name)) { ////동일한 이름의 과일이 있다! 
 							
-						fruitFlag = true;
+						fruitFlag = true; ////동일한 이름의 과일이 있다! 
+						
+						
 						System.out.print("개수 : ");
 						int count = inputNumber(1,200);
 							
-						count = (int)map.get("count") + count;
-						map.put("count", count);
+						count = (int)map.get("count") + count;//map.get("count") <-Object타입
+															  //(Integer)타입으로 다운캐스팅-> int로 자동언박싱
+						map.put("count", count); //x001.put("count", count);
 							
 						break;
-					}
+					} 
 						
-				}
+				}//// 동일한 이름의 과일이 있으면 개수만 올려주고 "가격은 거들떠 보지도 않고 넘어간다!"
+				 //// 따라서 boolean flag 활용해서 , 흐름 제어.**
 					
-				//동일한 과일 이름이 없을때
+				//동일한 이름의 과일이 없을때 , fruitFlag = false 일때
 				if(!fruitFlag) {
 						
 					System.out.print("개수 : ");
@@ -87,9 +92,9 @@ public class Java6_과일가게프로그램 {  //////////// (복습) ( )
 					System.out.print("가격 : ");
 					int price = inputNumber(100,10000);
 					fruit.put("price", price);
+					
+					list.add(fruit);
 				}
-				
-				list.add(fruit);
 				
 				System.out.println(list);
 

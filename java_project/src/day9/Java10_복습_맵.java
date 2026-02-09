@@ -12,7 +12,7 @@ public class Java10_복습_맵 {
 //		map.put("name", "홍길동"); //문자열 불가!
 		
 		
-		HashMap<String, Object> hong = new HashMap<>();
+		HashMap<String, Object> hong = new HashMap<>(); //hong.get() => Object 타입이 반환된다
 		hong.put("name", "홍길동");
 		hong.put("age", 30);
 		hong.put("height", 170.5);
@@ -21,7 +21,8 @@ public class Java10_복습_맵 {
 		System.out.println(hong);
 		
 		hong.put("height", 169.5);
-		hong.put("height", (double)hong.get("height") - 1);
+		hong.put("height", (double)hong.get("height") - 1); //168.5
+		
 		System.out.println(hong);
 		
 		HashMap<String, Object> kim = new HashMap<>();

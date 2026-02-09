@@ -8,7 +8,6 @@ public class Java5_성적관리프로그램 {
 	
 	static Scanner s = new Scanner(System.in);
 	
-	// 메서드로 뽑아내면?~~~~ 5교시에 (+ ) 복습( )
 	public static int inputNumber(int first, int last) {
 		
 		int result = 0;
@@ -109,7 +108,7 @@ public class Java5_성적관리프로그램 {
 				System.out.print("성적 확인 할 학생의 이름을 입력 : ");
 				String name = s.next();
 				
-				boolean studentFlag = false;
+				boolean studentFlag = false; //// 해당 학생이 없다!
 				
 				//list.size만큼 반복
 				
@@ -118,14 +117,14 @@ public class Java5_성적관리프로그램 {
 					
 					if(student.get("name").equals(name)) {
 						
-						studentFlag = true; //해당학생이 있다!
+						studentFlag = true; ////해당학생이 있다!
 						
 						// 학생 이름은 있지만, 점수가 입력되지 않았을때 로직처리
 						
-						if(!student.containsKey("java")) { //그 학생이 "java"키를 포함하고있지않다면,
+						if(!student.containsKey("java")) { ////그 학생이 "java"키를 포함하고있지않다면,
 							System.out.println("성적 점수가 입력되지 않았습니다.");
 							break;
-						}//ㅁㄴㅇㅁㄴ
+						}////** 복습(+)
 						
 						System.out.print(student.get("name") + "의 점수 =>");
 						System.out.print("자바 : " + student.get("java"));
@@ -137,7 +136,7 @@ public class Java5_성적관리프로그램 {
 					}
 				}
 				
-				// 입력한 이름의 학생이 없는경우  studentFlag = false; ->"해당 이름 학생 없습니다." 출력
+				//// 입력한 이름의 학생이 없는경우  studentFlag = false; ->"해당 이름 학생 없습니다." 출력
 				if(!studentFlag) {
 					System.out.println("해당 이름 학생 없습니다.");
 				}

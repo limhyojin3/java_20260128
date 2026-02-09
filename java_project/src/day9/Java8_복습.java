@@ -10,6 +10,8 @@ public class Java8_복습 {
 		Scanner s = new Scanner(System.in);
 		
 		ArrayList<Integer> list = new ArrayList<>();
+		
+		
 		// 숫자를 입력받아서 6개 저장
 		// 숫자의 범위는 1~30 사이. 그외 값 입력 시 다시 입력하도록
 		
@@ -31,7 +33,8 @@ public class Java8_복습 {
 		
 		System.out.println(list);
 		
-		////////////복습( )
+		
+		
 		ArrayList<Integer> oddList = new ArrayList<>();
 		
 		for(int i = 0; i < 6; i++) {

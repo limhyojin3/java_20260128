@@ -20,12 +20,11 @@ public class Java9_복습 {
 		
 		System.out.println(list);
 		
-		String txt = (String)list.get(0); //30
-		System.out.println(txt + 1); //301
-		System.out.println(Integer.parseInt(txt) + 1);  //31
-					//** Integer.parseInt(String타입) -> 문자열을 숫자로 바꿔줌
+		String txt = (String)list.get(0); //"30"
+		System.out.println(txt + 1); //"30" + 1 => "301"
+		System.out.println(Integer.parseInt(txt) + 1);  //Integer.parseInt("30") + 1 => 30 + 1 => 31
+					//** Integer.parseInt(String 타입) -> String 을 "Integer 로 바꿔줌"
 		
-		////////////복습( )
 	}
 
 }
