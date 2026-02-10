@@ -31,7 +31,7 @@ public class Java1_과일가게_선생님풀이 {
 
 		ArrayList<HashMap<String, Object>> list = new ArrayList<>();  //x001
 		
-		while(true) { ////////////////////선생님 풀이 확인 try-catch 부분
+		while(true) { ////////////////////선생님 풀이 확인 try-catch 부분(+)
 			
 			try {
 				
