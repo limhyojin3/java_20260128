@@ -53,7 +53,7 @@ public class Java6_과일가게프로그램 {  //////////// (복습) (+)
 				
 				HashMap<String, Object> fruit = new HashMap<>(); //fruit.get() -> Object 타입을 반환
 					
-				Boolean fruitFlag = false; ////동일한 이름의 과일이 없다! boolean 활용 적극적으로!**
+				boolean fruitFlag = false; ////동일한 이름의 과일이 없다! boolean 활용 적극적으로!**
 										   //(if-else)랑 비슷한 느낌으로. 그렇지만 검증에 가까움!
 										   // 흐름 제어용!!
 				

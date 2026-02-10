@@ -39,6 +39,9 @@ public class Java12_리스트맵 {
 		
 		// 일단 list를 순회한다. 0~2번인덱스
 		
+		
+		// [{name=김철수, age=20}, {name=홍길동, age=25}, {name=박영희, age=30}]
+		
 		for(int i = 0; i < list.size(); i++) {
 			
 			HashMap<String, Object> map = list.get(i); //hashmap을 꺼낸다. //x001
@@ -60,7 +63,7 @@ public class Java12_리스트맵 {
 		}
 		System.out.println(list);
 		
-		
+		//[{name=김철수, age=20}, {name=홍길동, age=26}, {name=박영희, age=31}]
 		
 		
 		
