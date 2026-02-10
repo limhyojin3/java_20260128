@@ -19,6 +19,7 @@ public class Java2_예외처리 {
 		} catch(ArithmeticException e) {
 			System.out.println("0으로 나누지 마세요.");
 			System.out.println(e.getMessage());
+			
 		} catch(InputMismatchException e) {
 			System.out.println("숫자를 입력하세요.");
 		}

@@ -18,7 +18,7 @@ public class Java1_과일가게_나의풀이_메서드있는버전 {
 			
 			if(map.get("name").equals(name)) { //사과  사과
 				
-				return map;
+				return map; ////map 을 사용해야하니까 HashMap을 반환받는것이 낫겠다!
 			}
 		}
 		
@@ -87,6 +87,9 @@ public class Java1_과일가게_나의풀이_메서드있는버전 {
 				
 				// 과일 이름 있는지 없는지 확인
 				HashMap<String, Object> map = searchFruit(list, name); //map, null
+				
+				////(tip!) 1.메서드가 이미 있다고 가정하고 코드 작성후  2.메서드를 구현
+				/// 메서드 장점 : 무슨 일을 하려는 건지 알기쉽고, 전체 코드의 흐름을 알기쉬움!
 				
 				
 				//과일 이름이 있는지 없는지 알아보는 메서드 적용.
