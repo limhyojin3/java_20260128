@@ -9,7 +9,6 @@ public class Java1_과일가게_나의풀이 {
 	static Scanner s = new Scanner(System.in);
 	
 	
-	
 	public static void main(String[] args) {
 
 		ArrayList<HashMap<String, Object>> list = new ArrayList<>();  //x001

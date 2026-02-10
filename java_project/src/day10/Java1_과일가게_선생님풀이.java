@@ -31,14 +31,12 @@ public class Java1_과일가게_선생님풀이 {
 
 		ArrayList<HashMap<String, Object>> list = new ArrayList<>();  //x001
 		
-		while(true) { ////////////////////선생님 풀이 확인
-			
-			int menu = 0;
+		while(true) { ////////////////////선생님 풀이 확인 try-catch 부분
 			
 			try {
 				
 				System.out.print("[1. 과일 등록, 2. 가격 수정, 3. 과일 판매] : ");
-				menu = s.nextInt();  // String 타입을 넣으면 버퍼에 우선 담긴다. 
+				int menu = s.nextInt();  // String 타입을 넣으면 버퍼에 우선 담긴다. 
 									 // 그후에 menu에 담으려고 계속 노력..
 				
 				if(menu == 1) {
@@ -57,7 +55,7 @@ public class Java1_과일가게_선생님풀이 {
 					if(fruit != null) {
 						
 						// 이미 과일 존재
-						System.out.println("개수 : ");
+						System.out.print("개수 : ");
 						int count = s.nextInt();
 						
 						fruit.put("count", (int)fruit.get("count") + count);
@@ -129,11 +127,10 @@ public class Java1_과일가게_선생님풀이 {
 					
 						if((int) fruit.get("count") - count < 0) {
 							System.out.println("과일 개수 부족");
+							continue;
 							
-						} else {
-							fruit.put("count", (int) fruit.get("count") - count);
-						
-						}
+						} 
+						fruit.put("count", (int) fruit.get("count") - count);
 						
 						
 					} else {
@@ -146,10 +143,11 @@ public class Java1_과일가게_선생님풀이 {
 				
 			} catch(InputMismatchException e) {
 				
-				System.out.println("메뉴 선택은 숫자로 해주세요.");
-				s.next(); //버퍼에 있는 값을 꺼내옴,, -> 버퍼에 잘못담긴 문자를 여기서 소진시켜준다!**
+				System.out.println("숫자를 적어주세요.");
+				s.next(); // 버퍼에 잘못담긴 문자를 여기서 소진시켜준다!**
 				
-				// -> catch 문 실행되면 , 아래라인은 무시됨.(continue)처럼...( )
+				// -> catch 문이 실행되면, 바로 올스탑하고 try 에 적힌 코드에서 빠져나옴. 
+				//    try-catch 의 밖에 반복문이 있으면, catch 처리 한 이후에 증감식으로 감.
 			}
 			
 			

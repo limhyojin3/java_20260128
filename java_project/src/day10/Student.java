@@ -75,12 +75,14 @@ public class Student {
 				continue;
 			}
 			
-			this.java = java; ///참조값으로 바로 가서 담아둔다.
+			this.java = java; ///참조값으로 바로 가서 담아둔다. //x003.java = java;
 			
 			break;
 		}
 		
 		return; 
+		
+		//메서드 호출이 끝나면, 메서드를 호출한 곳으로 되돌아감!(기본)
 	}
 	
 	public void setJava(int java) {  

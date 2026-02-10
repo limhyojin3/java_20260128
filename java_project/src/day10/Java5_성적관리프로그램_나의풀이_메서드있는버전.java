@@ -56,7 +56,6 @@ public class Java5_성적관리프로그램_나의풀이_메서드있는버전 {
 						// + 해당 학번의 학생이 있으면 메뉴로 가는게 아니라 학번을 다시 입력하도록.
 						
 						//// 해당학번의 학생이 있는 상황
-
 						if(student != null) {
 							
 							System.out.println("이미 존재하는 학번입니다. 다시 입력해주세요.");
@@ -96,25 +95,32 @@ public class Java5_성적관리프로그램_나의풀이_메서드있는버전 {
 					
 					// 해당 학번의 학생이 있는지 없는지 확인(search)
 					Student student = searchStudent(list, stuNo); // 그 해당학생의 참조값을 반환
+					//x003
 					
 					//// 해당 학번의 학생이 존재하는 경우
 					if(student != null) {
 						
 						System.out.println("--성적 입력하기--");
 						
-						System.out.print("자바 : ");
-						int java = s.nextInt();
-						student.setJava(java);  	//int 를 반환하도록..(?)ㅁㅇㄴㄴㅁㅇㄴ
-													//참조값으로 바로 가서 업데이트
+						student.setJava(); //x003.setJava();
 						
-						System.out.print("오라클 : ");
-						int oracle = s.nextInt();
-						student.setOracle(oracle);
+//						System.out.print("자바 : ");
+//						int java = s.nextInt();
+//						student.setJava(java); // int 를 반환하도록?
+///						                       // 참조값으로 바로 가서 업데이트 
+///											   // => void 메서드 여도 되겠다!
 						
-						System.out.print("html : ");
-						int html = s.nextInt();  //** 만약 문자가 잘못들어오면 버퍼에 담기고 예외처리(catch)를 해도,
-												 // 계속 int 에 담으려고 시도한다. s.next();로 잘못들어온 문자를 치워줘야함.
-						student.setHtml(html);
+						
+						student.setOracle();
+						
+						student.setHtml();
+						
+//						System.out.print("html : ");
+///						int html = s.nextInt();  //** 만약 문자가 잘못들어오면 버퍼에 담기고 예외처리(catch)를 해도,
+///												 // 계속 int 에 담으려고 시도한다. s.next();로 잘못들어온 문자를 치워줘야함.(소진시켜줘야함)
+//						student.setHtml(html);
+//						
+						
 						
 						// Student 객체 한개 완성.
 						
@@ -160,9 +166,12 @@ public class Java5_성적관리프로그램_나의풀이_메서드있는버전 {
 					System.out.println("1~4 중에 선택하세요.");
 				}
 				
+				//try 에는 에러가 발생할 가능성이 있는 코드를 담아둔다.
+				
+				//catch 에서 잡는다.
 			} catch (Exception e) {  //나머지 모든 경우의 예외처리
 
-				s.next();
+				s.next(); //버퍼에 잘못들어온 문자를 소진시키기.
 				System.out.println("에러 발생! 다시 시도해주세요!");
 			}
 		}
