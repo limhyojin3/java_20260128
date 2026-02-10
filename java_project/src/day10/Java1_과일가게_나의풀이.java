@@ -8,24 +8,10 @@ public class Java1_과일가게_나의풀이 {
 	
 	static Scanner s = new Scanner(System.in);
 	
-	public static boolean newMethod(ArrayList<HashMap<String,Object>> list, String input) {
-		
-		boolean thereIsAName = false;
-		
-		for(int i = 0; i < list.size(); i++) { // list.size만큼 반복
-			
-			HashMap<String, Object> map = list.get(i); // list.get(0); //사과  //x002
-			
-			thereIsAName = map.get("name").equals(input);
-		}
-		
-		return thereIsAName;
-	}
+	
 	
 	public static void main(String[] args) {
 
-		
-		
 		ArrayList<HashMap<String, Object>> list = new ArrayList<>();  //x001
 		
 		while(true) {
