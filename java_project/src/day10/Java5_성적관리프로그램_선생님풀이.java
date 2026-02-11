@@ -103,7 +103,7 @@ public class Java5_성적관리프로그램_선생님풀이 {  //// 복습 완(+
 							
 							System.out.println("--성적 입력하기--");
 							
-							stu.setJava(); //참조값으로 바로 가서 업데이트
+							stu.setJava(); //참조값으로 바로 가서 업데이트** void 메서드
 							stu.setOracle();
 							stu.setHtml();
 							
