@@ -27,6 +27,7 @@ public class Java4_오라클_UPDATE { // 복습완료(+)
 			
 			int result = stmt.executeUpdate(sql);
 						// stmt.executeUpdate(String 쿼리문);
+						//-> 결과값을 int로 반환한다. 성공하면 1, 실패하면 0
 			
 			if(result > 0) {
 				System.out.println("수정되었습니다!");

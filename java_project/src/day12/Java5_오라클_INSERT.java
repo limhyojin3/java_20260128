@@ -35,9 +35,17 @@ public class Java5_오라클_INSERT { // 복습완료(+)
 				ResultSet rs = stmt.executeQuery(
 						"SELECT * FROM STUDENT WHERE STU_NO = '" + stuNo + "'");
 				// stmt.executeQuery("쿼리문") :
-				// db로 가서 쿼리문 실행후에 결과값(테이블이든 뭐든)을 
+				// db 로 가서 쿼리문 실행후에 결과값(테이블이든 뭐든)을 
 				// 자바객체형태(ResultSet)로 리턴함.
 				
+				// rs(커서위치)는 만족하는 행 또는 테이블의 바로 위를 의미.
+				
+				// ->
+				// 사과 | 60 | 5000   (만족하는 행)
+				
+				// rs.next() 를 하면 커서가 이동
+				//
+				// -> 사과 | 60 | 5000
 				
 				if(rs.next()) {
 					System.out.println("이미 사용중인 학번입니다.");
@@ -58,11 +66,12 @@ public class Java5_오라클_INSERT { // 복습완료(+)
 			String sql = "INSERT INTO STUDENT(STU_NO, STU_NAME, STU_DEPT) "
 					+ "VALUES('" + stuNo + "', '" + name + "', '" + dept + "')";
 			
-			System.out.println(sql);
+			System.out.println(sql);  //맞게 입력했는지 한번 출력해서 눈으로 본다.
 			// INSERT INTO STUDENT(STU_NO, STU_NAME, STU_DEPT) VALUES('12348888', '임숙자', '전기공학')
 			
+			//db 로 가서 쿼리문을 실행한다.
 			int result = stmt.executeUpdate(sql); // 참이면 1, 거짓이면 0 반환한다.
-			//stmt.executeUpdate(sql); -> int 값을 리턴함. 성공시 1, 실패시 0
+			//stmt.executeUpdate(sql); -> int 값을 리턴함. 성공시 1, 실패시 0 을 반환한다.
 			
 //			-데이터 검색을 위해 executeQuery() 메소드 사용
 //			-추가,수정,삭제와 같은 데이터 변경은 executeUpdate() 메소드 사용

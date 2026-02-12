@@ -4,8 +4,9 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Scanner;
 
-public class Java6_과일가게_선생님풀이 {
-
+public class Java6_과일가게_선생님풀이 { // 복습완료(+) 2026.02.12 19:40
+	
+								// db 를 조회하기위해 Statement 객체 이용
 	public static void addFruit(Statement stmt) { // DB는 try-catch 안에서 작업 필수!
 		
 		//addFruit() 복습완료(세모) -> 한번 더 보면 좋을듯( )
@@ -23,12 +24,14 @@ public class Java6_과일가게_선생님풀이 {
 			System.out.print("개수 : ");
 			int count = s.nextInt();
 				
-			
+			//쿼리문을 실행하고 결과를 자바객체형태로 받아온다
 			// ResultSet 은 자바의 객체(자바가 조회가능)
 			ResultSet rs = stmt.executeQuery("SELECT * FROM TBL_FRUIT WHERE NAME = '" + name + "'");  //네임이 PrimayKey(where 절..)
 			// <= 1.해당 테이블의 where 절 조건을 만족하는 행이 있는지 조회한다.
 			// 2.rs 는 커서(커서위치) -> 만족하는 행의 바로 위.(또는 만족하는 테이블의 바로 위)
 			
+			
+			//커서이동 rs.next() 데이터가 있으면 true;
 			if(rs.next()) { // where name = name; 이 있는경우  // 해당하는 행이 있는경우
 				
 //				Integer.parseInt(rs.getString("COUNT"));
@@ -85,8 +88,14 @@ public class Java6_과일가게_선생님풀이 {
 			ResultSet rs = stmt.executeQuery(sql);
 			// DB 에서 자바의 객체(ResultSet) 형태로 전달
 			
-			while(rs.next()) {
+			// 쿼리문 실행하고 자바객체 형태로 받아온다.
+						//만족하는 행 또는 테이블의 바로 위에 커서가 위치
+			
+			// 데이터베이스 테이블을 눈으로 보면 이해가 쉽다!
+			
+			while(rs.next()) { // rs.next(); -> 데이터가 존재하면 이것은 true;
 				System.out.print(rs.getString("NAME") + " | ");
+								// 'rs가 가리키는 행'에 있는 '속성' 에 해당하는 'value값'을 반환한다.
 				System.out.print(rs.getInt("PRICE") + " | ");
 				System.out.println(rs.getInt("COUNT"));
 			} //rs.next() 에 데이터가 없으면 rs.next()가 false 가 되어 while 문을 빠져나간다(while(false))
@@ -127,13 +136,18 @@ public class Java6_과일가게_선생님풀이 {
 			// 과일 이름 없으면 '해당 과일은 존재하지 않습니다' 출력 후 메뉴로
 		
 			Scanner s = new Scanner(System.in);
+			
 			System.out.print("삭제할 과일 이름 : ");
 			String name = s.next();
 		
 			String sql = "SELECT * FROM TBL_FRUIT WHERE NAME = '" + name + "'";
-			ResultSet rs = stmt.executeQuery(sql);
 			
-			if(rs.next()) {
+			ResultSet rs = stmt.executeQuery(sql); // db 에서 쿼리문 실행
+			// 자바 객체 형태로 받아옴. ResultSet
+			// rs(커서위치) : 만족하는 행의 바로 위
+			
+							 //데이터가 있는경우
+			if(rs.next()) {  // where name = name; //과일 이름이 존재할때!
 				
 				while(true) {
 					
@@ -142,14 +156,19 @@ public class Java6_과일가게_선생님풀이 {
 					
 					if(confirm.toUpperCase().equals("Y")) {
 						
+						//데이터베이스에서 삭제
+						//쿼리문작성
 						sql = "DELETE FROM TBL_FRUIT WHERE NAME = '" + name + "'";
+						
+						//db 에서 실제로 삭제
 						int result = stmt.executeUpdate(sql);
 						
 						if(result > 0) {
-							System.out.println(name + "을(를) 삭제합니다.");
+							System.out.println(name + "을(를) 삭제했습니다.");
+							return;
 						} 
 						
-						return;
+						
 						
 					} else if(confirm.toUpperCase().equals("N")) {
 						
@@ -178,25 +197,33 @@ public class Java6_과일가게_선생님풀이 {
 		try {
 			
 			Scanner s = new Scanner(System.in);
-			System.out.print("삭제할 과일 이름 : ");
+			System.out.print("판매할 과일 이름 : ");
 			String name = s.next();
 		
 			String sql = "SELECT * FROM TBL_FRUIT WHERE NAME = '" + name + "'";
+			
+			//db로 가서 실행
 			ResultSet rs = stmt.executeQuery(sql);
+			// 조회하고나서 자바객체 형태로 받아온다. ResultSet
+			// 커서위치. 쿼리를 만족하는 행의 바로 위에 커서가 위치함.
 			
-			
-			if(rs.next()) { 
+			if(rs.next()) {  //데이터가 있는 경우 // 커서가 위치한 행에
 				
 				System.out.print("판매 개수 : ");
 				int count = s.nextInt();
 				
 				if(rs.getInt("COUNT") >= count) {
 					
-				
+					// 쿼리문 작성
 					sql = "UPDATE TBL_FRUIT SET "
 							+ "COUNT = " + (rs.getInt("COUNT") - count)
 							+ " WHERE NAME = '" + name + "'";
+					// rs.getInt("COUNT"):'rs 가 가리키는 행'의 '속성'에 해당하는 'value 값'을 반환한다.
 					
+					//쿼리문 한번 출력해서 눈으로 보기
+					System.out.println(sql);
+					
+					//실제로 db 에 쿼리문을 실행
 					int result = stmt.executeUpdate(sql);
 					
 					if (result > 0) {
@@ -208,10 +235,7 @@ public class Java6_과일가게_선생님풀이 {
 				}
 				
 				
-				
-				
-				
-			} else {
+			} else {  //데이터가 없는 경우
 				System.out.println(Message.failMsg); // **static 변수나 메서드는 클래스로 접근.
 			}
 			
@@ -227,7 +251,7 @@ public class Java6_과일가게_선생님풀이 {
 
 		Scanner s = new Scanner(System.in);
 		
-		DBClass db = new DBClass(); 
+		DBClass db = new DBClass(); // 오라클과 연결
 		Statement stmt = db.getStmt(); // Statement 를 통해서 database 를 조회한다.
 									   // => Statement 객체를 이용
 		
@@ -278,7 +302,7 @@ public class Java6_과일가게_선생님풀이 {
 			
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 	}
 

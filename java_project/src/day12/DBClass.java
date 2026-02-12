@@ -8,7 +8,7 @@ import java.sql.Statement;
 public class DBClass { // DB클래스를 새로 작성(데이터베이스(오라클)가 연결 되는 코드를 적어둠)
 	
 	private Connection conn;
-	private Statement stmt = null;
+	private Statement stmt = null;    //stmt = conn.createStatement();
 
 	public Statement getStmt() {
 		return stmt;
@@ -21,12 +21,15 @@ public class DBClass { // DB클래스를 새로 작성(데이터베이스(오라
 			String db_url = "jdbc:oracle:thin:@localhost:1521:xe";
 			String db_id = "SYSTEM";
 			String db_pw = "test1234";
+			
 			conn = DriverManager.getConnection(db_url, db_id, db_pw);
-			stmt = conn.createStatement();
+			
+			stmt = conn.createStatement(); ///
 			
 			
 		} catch (ClassNotFoundException e) {
 			System.out.println("JDBC 드라이버 로드 오류");
+			
 		} catch (SQLException e) {
 			System.out.println("DB 연결 오류");
 		}
