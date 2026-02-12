@@ -1,5 +1,6 @@
 package day12;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
@@ -28,7 +29,21 @@ public class Java5_오라클_INSERT { // 복습완료(+)
 				
 				if(stuNo.length() != 8) {
 					System.out.println("학번은 8글자 입니다.");
+					continue;
+				} 
+				
+				ResultSet rs = stmt.executeQuery(
+						"SELECT * FROM STUDENT WHERE STU_NO = '" + stuNo + "'");
+				// stmt.executeQuery("쿼리문") :
+				// db로 가서 쿼리문 실행후에 결과값(테이블이든 뭐든)을 
+				// 자바객체형태(ResultSet)로 리턴함.
+				
+				
+				if(rs.next()) {
+					System.out.println("이미 사용중인 학번입니다.");
+					continue;
 				} else {
+					System.out.println("사용 가능한 학번입니다.");
 					break;
 				}
 			}
@@ -47,6 +62,7 @@ public class Java5_오라클_INSERT { // 복습완료(+)
 			// INSERT INTO STUDENT(STU_NO, STU_NAME, STU_DEPT) VALUES('12348888', '임숙자', '전기공학')
 			
 			int result = stmt.executeUpdate(sql); // 참이면 1, 거짓이면 0 반환한다.
+			//stmt.executeUpdate(sql); -> int 값을 리턴함. 성공시 1, 실패시 0
 			
 //			-데이터 검색을 위해 executeQuery() 메소드 사용
 //			-추가,수정,삭제와 같은 데이터 변경은 executeUpdate() 메소드 사용

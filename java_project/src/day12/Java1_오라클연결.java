@@ -24,12 +24,12 @@ public class Java1_오라클연결 {
 //			System.out.println("DB 연결 완료");      //-> 여기까지 오라클이랑 연결하려면 기본세팅
 			
 			ResultSet rs = stmt.executeQuery("SELECT * FROM STUDENT"); //쿼리작성시 ;(세미콜론) 생략
-			//rs는 커서위치
+			//rs 는 커서위치 , 테이블 맨 위의 빈공간에서 시작!**
 			
 			
 			while(rs.next()) {
 				System.out.print(rs.getString("STU_NO") + " || ");
-								//커서위치.getString("속성")
+								// (->)커서위치.getString("속성") => value 값을 리턴한다
 				String name = rs.getString("STU_NAME") + " || ";
 				System.out.print(name);
 				

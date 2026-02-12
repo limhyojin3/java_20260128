@@ -3,7 +3,7 @@ package day12;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Java2_오라클_삭제 {
+public class Java2_오라클_삭제 { // 복습완료(+)
 
 	public static void main(String[] args) {
 
