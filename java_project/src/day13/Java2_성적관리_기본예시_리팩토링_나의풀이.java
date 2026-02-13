@@ -9,39 +9,12 @@ import java.util.Scanner;
 
 import day12.Message;
 
-public class Test1 {
+public class Java2_성적관리_기본예시_리팩토링_나의풀이 {
 	
 	private static DBClass db = new DBClass();
 	private static Statement stmt = db.getStmt();
 
 	private static Scanner s = new Scanner(System.in);
-	
-	public static ResultSet checkStudent(String stuNo) {
-		
-		ResultSet rs = null;
-		
-		while(true) {
-			try {
-				
-				if(stuNo.length() != 4) {
-					
-					System.out.println("4자리로 입력하세요");
-					continue;
-				}
-				
-				String sql = "SELECT * FROM TBL_STUDENT WHERE STU_NO = '" + stuNo + "'";
-				
-				rs = stmt.executeQuery(sql);
-				
-			} catch (Exception e) {
-
-				System.out.println(e.getMessage());
-			}
-			
-			return rs;
-		}
-		
-	}
 	
 	public static ResultSet checkStudent() {
 		
@@ -73,16 +46,24 @@ public class Test1 {
 		
 	}
 	
+	//학생등록
 	public static void addStudent() {
 		
 		while(true) {
 			
 			try {
 				
-				System.out.println("학번 : ");
-				String stuNo = s.next();
+				System.out.print("학번 : ");
+				String stuNo = s.next(); ///
 				
-				ResultSet rs = checkStudent(stuNo);
+				if(stuNo.length() != 4) {
+							
+					System.out.println("4자리로 입력하세요");
+					continue;
+				}
+
+				String sql = "SELECT * FROM TBL_STUDENT WHERE STU_NO = '" + stuNo + "'";
+				ResultSet rs = stmt.executeQuery(sql);
 				
 				if(rs.next()) {
 					System.out.println("이미 사용중인 학번입니다.");
@@ -95,7 +76,7 @@ public class Test1 {
 				System.out.print("학과 : ");
 				String stuDept = s.next();
 				
-				String sql = "INSERT INTO TBL_STUDENT(STU_NO, STU_NAME, STU_DEPT)"
+				sql = "INSERT INTO TBL_STUDENT(STU_NO, STU_NAME, STU_DEPT)"
 							+ " VALUES('" + stuNo + "', '" + stuName + "', '" + stuDept + "')";
 				
 				System.out.println(sql);
@@ -136,6 +117,7 @@ public class Test1 {
 		}
 	}
 	
+	//2.성적입력
 	public static void addScore() {
 		
 		
@@ -144,6 +126,13 @@ public class Test1 {
 			ResultSet rs = checkStudent();
 			
 			if(rs.next()) {
+				
+				// 이미 등록된 성적이 있는 경우
+				if(rs.getString("JAVA") != null) {
+					
+					System.out.println("이미 등록된 성적이 있습니다. 성적수정은 4번 메뉴로..");
+					return;
+				}
 				
 				int java = setScore("자바");
 				int oracle = setScore("오라클");
@@ -186,6 +175,12 @@ public class Test1 {
 			ResultSet rs = checkStudent();
 			
 			if(rs.next()) {
+				
+				if(rs.getString("JAVA") == null) {
+					
+					System.out.println("입력된 성적이 없습니다. 성적입력부터 해주세요.");
+					return;
+				}
 									   //'rs 가 가리키는 행'의 '속성'으로 가서 해당하는 'value 값'을 반환한다.
 				System.out.print("[" + rs.getString("STU_NO") + "] ");
 				System.out.print("자바 : " + rs.getInt("JAVA") + ", ");
@@ -212,7 +207,14 @@ public class Test1 {
 			
 			ResultSet rs = checkStudent();
 			
-			if(rs.next()) {
+			if(rs.next()) { //해당학번 학생이 있는경우
+				
+				if(rs.getString("JAVA") == null) {
+					
+					System.out.println("입력된 성적이 없습니다. 성적입력부터 해주세요.");
+					return;
+				}
+				
 				
 				boolean scoreFlg = false;
 				String selectSubject = "";
@@ -228,7 +230,7 @@ public class Test1 {
 					switch (menu) {
 						case 1:
 							score = setScore("자바");
-							selectSubject = "JAVA";
+							selectSubject = "JAVA"; //변수에 변하는값을 담는다
 							scoreFlg = true;
 							break;
 						case 2:
@@ -312,8 +314,9 @@ public class Test1 {
 			
 				
 			} catch (Exception e) {
-
-				System.out.println(e.getMessage());
+				s.next(); //잘못 들어온 문자 소진시키기. 버퍼 비워주기.
+				System.out.println("숫자를 입력하세요 ");
+				System.err.println(e.getMessage());
 			}
 			
 		}

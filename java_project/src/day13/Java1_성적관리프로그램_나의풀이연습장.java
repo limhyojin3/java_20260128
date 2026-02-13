@@ -211,7 +211,7 @@ public class Java1_성적관리프로그램_나의풀이연습장 {
 					System.out.println("아직 성적이 입력되지않았습니다.");
 					return;
 				}
-				
+																		///디버깅~
 				System.out.println("학생이름: " + rs.getString("STU_NAME") ///<= rs.getString("NAME"): 부적합한 열 이름; 테이블 속성명과 일치시켜줘야함**
 							+ ", 과목별 점수: (자바: " + rs.getInt("JAVA") + "), "
 							+ "(오라클: " + rs.getInt("ORACLE") + "), (HTML: " + rs.getInt("HTML") + ")");
