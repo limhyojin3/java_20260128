@@ -17,7 +17,7 @@ public class Java5_2차원배열문제 { //복습(+)
 		
 		Random ran = new Random();
 		
-		ArrayList<Integer> list = new ArrayList<>();
+		ArrayList<Integer> list = new ArrayList<>(); //<- 컬렉션
 		
 		// 랜덤한 숫자 넣기
 		for(int j = 0; j < arr.length; j++) {

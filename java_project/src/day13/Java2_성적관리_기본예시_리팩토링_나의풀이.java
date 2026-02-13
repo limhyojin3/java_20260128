@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 import day12.Message;
 
-public class Java2_성적관리_기본예시_리팩토링_나의풀이 {
+public class Java2_성적관리_기본예시_리팩토링_나의풀이 { //리팩토링 복습(+)
 	
 	private static DBClass db = new DBClass();
 	private static Statement stmt = db.getStmt();

@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 import day12.Message;
 
-public class Java2_성적관리_기본예시 {
+public class Java2_성적관리_기본예시 { //리팩토링 복습(+)
 
 	public static void main(String[] args) {
 

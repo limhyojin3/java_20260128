@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 import day12.Message;
 
-public class Java1_성적관리프로그램_나의풀이연습장 {
+public class Java1_성적관리프로그램_나의풀이연습장 { //복습(+)
 	
 	static Scanner s = new Scanner(System.in);
 	
