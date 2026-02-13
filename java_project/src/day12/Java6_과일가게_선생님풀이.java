@@ -1,22 +1,25 @@
 package day12;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
 public class Java6_과일가게_선생님풀이 { // 복습완료(+) 2026.02.12 19:40
 	
+
+	static Scanner s = new Scanner(System.in);
+	
+	
 								// db 를 조회하기위해 Statement 객체 이용
-	public static void addFruit(Statement stmt) { // DB는 try-catch 안에서 작업 필수!
-		
-		//addFruit() 복습완료(세모) -> 한번 더 보면 좋을듯( )
+	public static void addFruit(Statement stmt) { // DB는 try-catch 안에서 작업 필수!    //복습완료(+)
 		
 		try {
 
 			// 과일 이름, 개수, 가격 입력받아서 DB(TBL_FRUIT)에 저장
 			// 과일 이름이 이미 있는 경우 개수만 입력받아서 기존거에 더해주기
 			
-			Scanner s = new Scanner(System.in);
+			///////////////ResultSet rs = getFruit(stmt); --------->
 			
 			System.out.print("과일 이름 : ");
 			String name = s.next();
@@ -24,7 +27,7 @@ public class Java6_과일가게_선생님풀이 { // 복습완료(+) 2026.02.12 
 			System.out.print("개수 : ");
 			int count = s.nextInt();
 				
-			//쿼리문을 실행하고 결과를 자바객체형태로 받아온다
+			// 쿼리문을 실행하고 결과를 자바객체형태로 받아온다
 			// ResultSet 은 자바의 객체(자바가 조회가능)
 			ResultSet rs = stmt.executeQuery("SELECT * FROM TBL_FRUIT WHERE NAME = '" + name + "'");  //네임이 PrimayKey(where 절..)
 			// <= 1.해당 테이블의 where 절 조건을 만족하는 행이 있는지 조회한다.
@@ -79,7 +82,7 @@ public class Java6_과일가게_선생님풀이 { // 복습완료(+) 2026.02.12 
 		
 	}
 	
-	public static void searchFruit(Statement stmt) { // DB는 try-catch 안에서 작업 필수!
+	public static void searchFruit(Statement stmt) { // DB는 try-catch 안에서 작업 필수!        //복습완료(+)
 		
 		try {
 			
@@ -126,7 +129,7 @@ public class Java6_과일가게_선생님풀이 { // 복습완료(+) 2026.02.12 
 	}
 	
 	// 삭제
-	public static void removeFruit(Statement stmt) {
+	public static void removeFruit(Statement stmt) {        //복습완료(+)
 		
 		try {
 			// 과일 이름 입력받고 삭제하기
@@ -135,16 +138,16 @@ public class Java6_과일가게_선생님풀이 { // 복습완료(+) 2026.02.12 
 			// 그외 문자 입력 시 'Y, N 중에 선택 하세요' 출력 후 다시 입력하도록
 			// 과일 이름 없으면 '해당 과일은 존재하지 않습니다' 출력 후 메뉴로
 		
-			Scanner s = new Scanner(System.in);
+			ResultSet rs = getFruit(stmt);
 			
-			System.out.print("삭제할 과일 이름 : ");
-			String name = s.next();
-		
-			String sql = "SELECT * FROM TBL_FRUIT WHERE NAME = '" + name + "'";
-			
-			ResultSet rs = stmt.executeQuery(sql); // db 에서 쿼리문 실행
-			// 자바 객체 형태로 받아옴. ResultSet
-			// rs(커서위치) : 만족하는 행의 바로 위
+//			System.out.print("삭제할 과일 이름 : ");
+//			String name = s.next();
+//		
+//			String sql = "SELECT * FROM TBL_FRUIT WHERE NAME = '" + name + "'";
+//			
+//			ResultSet rs = stmt.executeQuery(sql); // db 에서 쿼리문 실행
+//			// 자바 객체 형태로 받아옴. ResultSet
+//			// rs(커서위치) : 만족하는 행의 바로 위
 			
 							 //데이터가 있는경우
 			if(rs.next()) {  // where name = name; //과일 이름이 존재할때!
@@ -158,13 +161,13 @@ public class Java6_과일가게_선생님풀이 { // 복습완료(+) 2026.02.12 
 						
 						//데이터베이스에서 삭제
 						//쿼리문작성
-						sql = "DELETE FROM TBL_FRUIT WHERE NAME = '" + name + "'";
+						String sql = "DELETE FROM TBL_FRUIT WHERE NAME = '" + rs.getString("NAME") + "'";
 						
 						//db 에서 실제로 삭제
 						int result = stmt.executeUpdate(sql);
 						
 						if(result > 0) {
-							System.out.println(name + "을(를) 삭제했습니다.");
+							System.out.println(rs.getString("NAME") + "을(를) 삭제했습니다.");
 							return;
 						} 
 						
@@ -192,20 +195,21 @@ public class Java6_과일가게_선생님풀이 { // 복습완료(+) 2026.02.12 
 		}
 	}
 	
-	public static void sellFruit(Statement stmt) {
+	public static void sellFruit(Statement stmt) {        //복습완료(+)
 		
 		try {
+
+			ResultSet rs = getFruit(stmt);
 			
-			Scanner s = new Scanner(System.in);
-			System.out.print("판매할 과일 이름 : ");
-			String name = s.next();
-		
-			String sql = "SELECT * FROM TBL_FRUIT WHERE NAME = '" + name + "'";
-			
-			//db로 가서 실행
-			ResultSet rs = stmt.executeQuery(sql);
-			// 조회하고나서 자바객체 형태로 받아온다. ResultSet
-			// 커서위치. 쿼리를 만족하는 행의 바로 위에 커서가 위치함.
+//			System.out.print("판매할 과일 이름 : ");
+//			String name = s.next();
+//		
+//			String sql = "SELECT * FROM TBL_FRUIT WHERE NAME = '" + name + "'";
+//			
+//			//db로 가서 실행
+//			ResultSet rs = stmt.executeQuery(sql);
+//			// 조회하고나서 자바객체 형태로 받아온다. ResultSet
+//			// 커서위치. 쿼리를 만족하는 행의 바로 위에 커서가 위치함.
 			
 			if(rs.next()) {  //데이터가 있는 경우 // 커서가 위치한 행에
 				
@@ -215,10 +219,10 @@ public class Java6_과일가게_선생님풀이 { // 복습완료(+) 2026.02.12 
 				if(rs.getInt("COUNT") >= count) {
 					
 					// 쿼리문 작성
-					sql = "UPDATE TBL_FRUIT SET "
+					String sql = "UPDATE TBL_FRUIT SET "
 							+ "COUNT = " + (rs.getInt("COUNT") - count)
-							+ " WHERE NAME = '" + name + "'";
-					// rs.getInt("COUNT"):'rs 가 가리키는 행'의 '속성'에 해당하는 'value 값'을 반환한다.
+							+ " WHERE NAME = '" + rs.getString("NAME") + "'";
+					/// rs.getInt("COUNT"):'rs 가 가리키는 행'의 '속성'으로 가서 해당하는 속성의 'value 값'을 반환한다.**
 					
 					//쿼리문 한번 출력해서 눈으로 보기
 					System.out.println(sql);
@@ -246,10 +250,69 @@ public class Java6_과일가게_선생님풀이 { // 복습완료(+) 2026.02.12 
 		}
 	}
 	
+	//26.02.13
+	public static void editFruit(Statement stmt) {
+		
+		try {
+			
+			ResultSet rs = getFruit(stmt);
+			
+			if(rs.next()) {
+				
+				System.out.println("현재 " + rs.getString("NAME") + "의 가격은 " + rs.getInt("PRICE") + "원 입니다.");
+				
+				System.out.print("수정할 금액을 입력해주세요 : ");
+				int price = s.nextInt();
+				
+				String sql = "UPDATE TBL_FRUIT SET "
+						+ "PRICE = " + price 
+						+ " WHERE NAME = '" + rs.getString("NAME") + "'"; 
+				// UPDATE TBL_FRUIT SET PRICE = 2000 WHERE NAME = '사과' 
+				// WHERE NAME = '사과' <- String 타입은 ''(작은따옴표)로 감싸야한다. 안그러면 '부적합한 식별자' 라고 에러 남. 
+				
+				System.out.println(sql); //쿼리문 한번 출력해서 눈으로 본다.
+				
+				int result = stmt.executeUpdate(sql);
+				
+				if(result > 0) {
+					System.out.println("수정되었습니다!");
+				}
+				
+			} else {
+				System.out.println(Message.failMsg);
+			}
+			
+		} catch (Exception e) {
+			
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public static ResultSet getFruit(Statement stmt) {
+		
+		ResultSet rs = null;
+		try {
+			
+			System.out.print("과일 이름 : ");
+			String name = s.next();
+		
+			String sql = "SELECT * FROM TBL_FRUIT WHERE NAME = '" + name + "'"; 
+			rs = stmt.executeQuery(sql);
+		
+		} catch (Exception e) {
+			
+			System.out.println(e.getMessage());
+			
+		}
+		
+		return rs;
+	}
+	
+	
+	
 
 	public static void main(String[] args) {
 
-		Scanner s = new Scanner(System.in);
 		
 		DBClass db = new DBClass(); // 오라클과 연결
 		Statement stmt = db.getStmt(); // Statement 를 통해서 database 를 조회한다.
@@ -278,7 +341,7 @@ public class Java6_과일가게_선생님풀이 { // 복습완료(+) 2026.02.12 
 						sellFruit(stmt);
 						break;
 					case 3:
-						
+						editFruit(stmt);
 						break;
 					case 4:
 						removeFruit(stmt);
@@ -305,5 +368,7 @@ public class Java6_과일가게_선생님풀이 { // 복습완료(+) 2026.02.12 
 			System.out.println(e.getMessage());
 		}
 	}
+
+	
 
 }
