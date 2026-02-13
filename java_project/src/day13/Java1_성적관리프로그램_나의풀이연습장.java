@@ -128,7 +128,7 @@ public class Java1_성적관리프로그램_나의풀이연습장 {
 		// 2. 성적 입력
 		///   -> 학번을 입력받은 후 해당 학생 존재하는지 확인
 		//    -> 자바, 오라클, HTML 점수를 입력받아서 DB 에 저장(+)
-		//    -> 점수는 0~100사이 값을 입력받아서 저장 하도록 함
+		//    -> 점수는 0~100사이 값을 입력받아서 저장 하도록 함(+)
 		
 		try {
 			
@@ -137,9 +137,11 @@ public class Java1_성적관리프로그램_나의풀이연습장 {
 			if(rs.next()) { // 데이터가 있는경우
 				
 //				//이미 등록된 성적이 있는 경우
-//				if (rs.getInt("JAVA")) {
-//					
-//				}
+				if (rs.getString("JAVA") != null) {
+					
+					System.out.println("이미 등록된 성적이 있습니다.");
+					return;
+				}
 				
 				int java = setScore("java");
 				int oracle = setScore("oracle"); 
@@ -204,6 +206,12 @@ public class Java1_성적관리프로그램_나의풀이연습장 {
 			
 			if(rs.next()) { // 데이터가 있는 경우 //rs 가 가리키는 행
 				
+				if(rs.getString("JAVA") == null) {
+					
+					System.out.println("아직 성적이 입력되지않았습니다.");
+					return;
+				}
+				
 				System.out.println("학생이름: " + rs.getString("STU_NAME") ///<= rs.getString("NAME"): 부적합한 열 이름; 테이블 속성명과 일치시켜줘야함**
 							+ ", 과목별 점수: (자바: " + rs.getInt("JAVA") + "), "
 							+ "(오라클: " + rs.getInt("ORACLE") + "), (HTML: " + rs.getInt("HTML") + ")");
@@ -232,6 +240,12 @@ public class Java1_성적관리프로그램_나의풀이연습장 {
 			ResultSet rs = checkStudent(stmt);
 			
 			if(rs.next()) { //데이터가 있는경우
+				
+				if(rs.getString("JAVA") == null) {
+					
+					System.out.println("아직 성적이 입력되지않았습니다. 수정할 성적이 없습니다.");
+					return;
+				}
 				
 				while(true) {
 					
