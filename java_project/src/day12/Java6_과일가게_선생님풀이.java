@@ -19,20 +19,13 @@ public class Java6_과일가게_선생님풀이 { // 복습완료(+) 2026.02.12 
 			// 과일 이름, 개수, 가격 입력받아서 DB(TBL_FRUIT)에 저장
 			// 과일 이름이 이미 있는 경우 개수만 입력받아서 기존거에 더해주기
 			
-			///////////////ResultSet rs = getFruit(stmt); --------->
-			
-			System.out.print("과일 이름 : ");
+			System.out.print("과일이름: ");
 			String name = s.next();
+			
+			ResultSet rs = getFruit(stmt, name);
 			
 			System.out.print("개수 : ");
 			int count = s.nextInt();
-				
-			// 쿼리문을 실행하고 결과를 자바객체형태로 받아온다
-			// ResultSet 은 자바의 객체(자바가 조회가능)
-			ResultSet rs = stmt.executeQuery("SELECT * FROM TBL_FRUIT WHERE NAME = '" + name + "'");  //네임이 PrimayKey(where 절..)
-			// <= 1.해당 테이블의 where 절 조건을 만족하는 행이 있는지 조회한다.
-			// 2.rs 는 커서(커서위치) -> 만족하는 행의 바로 위.(또는 만족하는 테이블의 바로 위)
-			
 			
 			//커서이동 rs.next() 데이터가 있으면 true;
 			if(rs.next()) { // where name = name; 이 있는경우  // 해당하는 행이 있는경우
@@ -45,7 +38,7 @@ public class Java6_과일가게_선생님풀이 { // 복습완료(+) 2026.02.12 
 				
 				String sql = "UPDATE TBL_FRUIT SET "
 							+ "COUNT = " + updateCnt 
-							+ " WHERE NAME = '" + name + "'";  // 쿼리문 작성
+							+ " WHERE NAME = '" + rs.getString("NAME") + "'";  // 쿼리문 작성
 				
 				int result = stmt.executeUpdate(sql); // DB 에 업데이트 하고 결과값을 반환(1 또는 0)
 				
@@ -81,7 +74,7 @@ public class Java6_과일가게_선생님풀이 { // 복습완료(+) 2026.02.12 
 		}
 		
 	}
-	
+
 	public static void searchFruit(Statement stmt) { // DB는 try-catch 안에서 작업 필수!        //복습완료(+)
 		
 		try {
@@ -288,16 +281,48 @@ public class Java6_과일가게_선생님풀이 { // 복습완료(+) 2026.02.12 
 		}
 	}
 	
+	public static ResultSet getFruit(Statement stmt, String name) {
+		
+		ResultSet rs = null;
+		
+		try {
+			
+			String sql = "SELECT * FROM TBL_FRUIT WHERE NAME = '" + name + "'";  //네임이 PrimayKey(where 절..)
+			
+			// 쿼리문을 실행하고 결과를 자바객체형태로 받아온다
+			// ResultSet 은 자바의 객체(자바가 조회가능)
+			rs = stmt.executeQuery(sql);
+			// <= 1.해당 테이블의 where 절 조건을 만족하는 행이 있는지 조회한다.
+			// 2.rs 는 커서(커서위치) -> 만족하는 행의 바로 위.(또는 만족하는 테이블의 바로 위)
+
+		
+		} catch (Exception e) {
+			
+			System.out.println(e.getMessage());
+			
+		}
+		
+		return rs;
+	}
+	
+	
 	public static ResultSet getFruit(Statement stmt) {
 		
 		ResultSet rs = null;
+		
 		try {
 			
 			System.out.print("과일 이름 : ");
 			String name = s.next();
 		
-			String sql = "SELECT * FROM TBL_FRUIT WHERE NAME = '" + name + "'"; 
+			String sql = "SELECT * FROM TBL_FRUIT WHERE NAME = '" + name + "'";  //네임이 PrimayKey(where 절..)
+			
+			// 쿼리문을 실행하고 결과를 자바객체형태로 받아온다
+			// ResultSet 은 자바의 객체(자바가 조회가능)
 			rs = stmt.executeQuery(sql);
+			// <= 1.해당 테이블의 where 절 조건을 만족하는 행이 있는지 조회한다.
+			// 2.rs 는 커서(커서위치) -> 만족하는 행의 바로 위.(또는 만족하는 테이블의 바로 위)
+
 		
 		} catch (Exception e) {
 			

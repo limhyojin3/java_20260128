@@ -2,7 +2,7 @@ package day13;
 
 public class Java3_향상된for배열 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) { //복습(+)
 
 		int arr[] = {3, 5, 2, 4, 1};
 		

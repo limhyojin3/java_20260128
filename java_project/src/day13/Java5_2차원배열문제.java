@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
-public class Java5_2차원배열문제 {
+public class Java5_2차원배열문제 { //복습(+)
 
 	public static void main(String[] args) {
 
@@ -27,7 +27,7 @@ public class Java5_2차원배열문제 {
 				arr[j][i] = ran.nextInt(16) + 1;
 				
 				if(list.contains(arr[j][i])) {
-					i--;
+					i--; ///
 					continue;
 				}
 				
@@ -35,9 +35,9 @@ public class Java5_2차원배열문제 {
 			}
 			
 		}
-		
-		for(int i = 0; i < arr.length; i++) {
-			System.out.println(Arrays.toString(arr[i]));
+		//2차원배열출력
+		for(int i = 0; i < arr.length; i++) { //반복
+			System.out.println(Arrays.toString(arr[i]));//1차원배열출력
 		}
 		
 		
