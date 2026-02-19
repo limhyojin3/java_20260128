@@ -8,6 +8,7 @@ import day13.DBClass;
 
 public class Java9_DB {
 	
+	//복습(+)
 	public static void searchStudent(Statement stmt) { //DB와 연결(외부와 연결) 할때는 예외처리(try-catch) 필수
 		
 		try {
@@ -29,6 +30,8 @@ public class Java9_DB {
 		}
 		
 	}
+	
+	//복습(+)
 	public static void addStudent(Statement stmt) {
 		
 		Scanner s = new Scanner(System.in);
@@ -44,7 +47,10 @@ public class Java9_DB {
 				
 				String sql = "SELECT * FROM TBL_STUDENT WHERE STU_NO = '" + stuNo + "'";
 				System.out.println(sql);
+				
+				//행을 조회
 				ResultSet rs = stmt.executeQuery(sql); //만족하는 행을 객체형태로 받아옴.
+				//커서위치
 				
 				if(rs.next()) {
 					
@@ -81,6 +87,7 @@ public class Java9_DB {
 //		s.close(); 
 	}
 	
+	//복습(+)
 	public static void removeStudent(Statement stmt) {
 		
 		Scanner s = new Scanner(System.in);
@@ -93,7 +100,7 @@ public class Java9_DB {
 			String sql = "DELETE FROM TBL_STUDENT WHERE STU_NO = '" + stuNo + "'";
 			System.out.println(sql);
 			
-			int result = stmt.executeUpdate(sql);
+			int result = stmt.executeUpdate(sql); //db 로 가서 쿼리문실행
 			
 			if(result > 0) {
 				System.out.println("삭제되었습니다!");
@@ -107,11 +114,12 @@ public class Java9_DB {
 		}
 	}
 
+	//2026.02.19 복습(+)
 	public static void main(String[] args) {
 
 		Scanner s = new Scanner(System.in);
-		DBClass db = new DBClass();    //데이터베이스와 연결
-		Statement stmt = db.getStmt(); /////
+		DBClass db = new DBClass();    // main 에서 생성자 호출하면 데이터베이스와 연결됨!
+		Statement stmt = db.getStmt(); // db 를 조회하기위해 Statement 객체 이용
 		
 		// 1. 검색, 2. 추가, 3. 수정, 4. 삭제
 		

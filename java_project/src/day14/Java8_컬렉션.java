@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Java8_컬렉션 {  
+public class Java8_컬렉션 {   //복습(+)
 
 	public static void main(String[] args) {
 		
@@ -31,7 +31,7 @@ public class Java8_컬렉션 {
 				System.out.print("나이: ");
 				age = s.nextInt();   // <- 이 줄에서 터짐
 
-				map.put("age", age);  /////////////////ㅁㅇㄴㅇㅁㄴ복습중( )
+				map.put("age", age);  
 				
 				break;
 				
@@ -45,7 +45,6 @@ public class Java8_컬렉션 {
 		}
 		
 		
-			
 		System.out.println(map);
 		
 		
