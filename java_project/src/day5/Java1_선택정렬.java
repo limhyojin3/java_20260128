@@ -6,7 +6,7 @@ public class Java1_선택정렬 {
 
 	public static void main(String[] args) {
 
-		// 선택정렬
+		/// 선택정렬 (오름차순)
 		// 배열의 값들 중 가장 작은 수를 찾아서
 		// 맨 앞의 값과 위치 변경
 

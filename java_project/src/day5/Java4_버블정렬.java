@@ -6,7 +6,7 @@ public class Java4_버블정렬 {
 
 	public static void main(String[] args) {
 
-		// 버블 정렬
+		/// 버블 정렬
 		// 인접한 숫자끼리 비교해서 큰 숫자를 뒤로 보낸다.
 		
 		int arr[] = {2, 4, 5, 1, 3};

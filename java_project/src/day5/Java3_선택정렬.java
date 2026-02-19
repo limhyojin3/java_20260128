@@ -7,8 +7,8 @@ public class Java3_선택정렬 {
 	public static void main(String[] args) {
 		
 		int arr[] = {2, 3, 5, 1, 4};
-		// 선택정렬
-		// 내림차순 : 가장 큰숫자가 맨 앞에.
+		/// 선택정렬
+		/// 내림차순 : 가장 큰숫자가 맨 앞에.
 		// 1회차 {2, 3, 5, 1, 4} -> {5, 3, 2, 1, 4}
 		// 2회차 0번 인덱스까지 고정 {5, 3, 2, 1, 4} -> {5, 4, 2, 1, 3} 
 		// 3회차 1번 인덱스까지 고정 {5, 4, 2, 1, 3} -> {5, 4, 3, 1, 2}
@@ -17,13 +17,13 @@ public class Java3_선택정렬 {
 		
 		for(int j = 0; j < arr.length - 1; j++) {
 			int maxIndex = j;
-			for(int i = j + 1; i < arr.length; i++) {  //i는 위치인덱스
+			for(int i = j + 1; i < arr.length; i++) {  //i 는 위치인덱스
 				
 				//검증
 				if(arr[maxIndex] < arr[i]) {
 					maxIndex = i;//가장 큰 숫자를 가리키는 위치인덱스를 갱신
 				}
-			} //for문 종료되면 maxIndex가 갱신되어있음
+			} //for 문 종료되면 maxIndex가 갱신되어있음
 			
 			int temp = arr[j]; 
 			arr[j] = arr[maxIndex]; 

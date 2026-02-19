@@ -14,7 +14,7 @@ public class DBClass { // DB클래스를 새로 작성(데이터베이스(오라
 		return stmt;
 	}
 	
-	DBClass(){  // main 에서 생성자 호출하면 데이터베이스와 연결됨!
+	public DBClass(){  // main 에서 생성자 호출하면 데이터베이스와 연결됨!
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver"); 

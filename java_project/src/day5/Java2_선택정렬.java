@@ -6,6 +6,7 @@ public class Java2_선택정렬 {
 
 	public static void main(String[] args) {
 
+		/// 선택정렬 (오름차순)
 		// 1번파일에서 작성한 코드의 규칙성을 찾아서
 		// 반복문으로 다시 작성해보기
 		
