@@ -113,6 +113,204 @@ public class Java9_DB {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	public static void editStudent(Statement stmt, String mySol) {
+		
+		Scanner s = new Scanner(System.in);
+		
+		try {
+			
+			String stuNo = "";
+			
+			while(true) {  
+			
+				System.out.print("학번 : ");
+				stuNo = s.next();
+				
+				String sql = "SELECT * FROM TBL_STUDENT WHERE STU_NO = '" + stuNo + "'";
+				System.out.println(sql);
+				
+				//행을 조회
+				ResultSet rs = stmt.executeQuery(sql); //만족하는 행을 객체형태로 받아옴.
+				//커서위치
+				
+				if(rs.next()) {
+					System.out.print("[ 1. 자바, 2. 오라클, 3. HTML ] : ");
+					int menu = s.nextInt();
+					
+					switch (menu) {
+					case 1:
+						
+						sql = editScore("자바", "JAVA", stuNo);
+						// 공통부분은 메서드로 틀을 잡고,
+						// 서로다른부분은 '매개변수로 외부에서 받는다' 생각.
+						break;
+
+					case 2:
+						sql = editScore("오라클", "ORACLE", stuNo);
+						break;
+						
+					case 3:
+						sql = editScore("HTML", "HTML", stuNo);
+						break;
+	
+					default:
+						
+						System.out.println("1~3중에 선택해주세요.");
+						break;
+					}
+					
+					int result = stmt.executeUpdate(sql);
+					
+					if(result > 0) {
+						System.out.println("수정되었습니다!");
+					} else {
+						System.out.println("수정에 실패했습니다!");
+					}
+					
+					break;
+					
+				} else {
+					System.out.println("없는 학번 입니다.");
+				}
+				
+				
+			}
+			
+			
+			
+			
+		} catch (Exception e) {
+			
+			System.out.println(e.getMessage());
+		}
+		
+	}
+	
+	public static void editStudent(Statement stmt) {
+		
+		Scanner s = new Scanner(System.in);
+		
+		try {
+			
+			String stuNo = "";
+			
+			while(true) {  
+			
+				System.out.print("학번 : ");
+				stuNo = s.next();
+				
+				String sql = "SELECT * FROM TBL_STUDENT WHERE STU_NO = '" + stuNo + "'";
+				System.out.println(sql);
+				
+				//행을 조회
+				ResultSet rs = stmt.executeQuery(sql); //만족하는 행을 객체형태로 받아옴.
+				//커서위치
+				
+				if(rs.next()) {
+					System.out.print("[ 1. 자바, 2. 오라클, 3. HTML ] : ");
+					int menu = s.nextInt();
+					int score = 0;//(+)
+					String subject = "";//(+)
+					
+					switch (menu) {
+					case 1:
+						
+						score = inputScore("자바");  //1.score 따로
+						subject = "JAVA";			//2.column 명 따로
+						break;
+
+					case 2:
+						score = inputScore("오라클");
+						subject = "ORACLE";
+						break;
+						
+					case 3:
+						score = inputScore("HTML");
+						subject = "HTML";
+						break;
+	
+					default:
+						
+						System.out.println("1~3중에 선택해주세요.");
+						break;
+					}
+					
+					sql = "UPDATE TBL_STUDENT SET " + subject + " = " + score + " WHERE STU_NO = '" + stuNo + "'";
+					//3.쿼리문 따로
+					
+					int result = stmt.executeUpdate(sql);
+					
+					if(result > 0) {
+						System.out.println("수정되었습니다!");
+					} else {
+						System.out.println("수정에 실패했습니다!");
+					}
+					
+					break;
+					
+				} else {
+					System.out.println("없는 학번 입니다.");
+				}
+				
+				
+			}
+			
+			
+		} catch (Exception e) {
+			
+			System.out.println(e.getMessage());
+		}
+		
+	}
+	
+	public static int inputScore(String subject) {
+		
+		Scanner s = new Scanner(System.in);
+		
+		int score = 0;
+		
+		while(true) {
+			
+			System.out.print(subject + " : ");
+			score = s.nextInt();
+			
+			if(0 <= score && score <= 100) {
+				break;
+			} else {
+				System.out.println("0~100 사이 값을 입력해주세요");
+			}
+			
+		}
+		return score;
+	}
+	
+	public static String editScore(String korSubject, String dbColumn, String stuNo) {
+		
+		Scanner s = new Scanner(System.in);
+		
+		int score;
+		String sql = "";
+		
+		while(true) {
+			
+			System.out.print(korSubject + " : ");
+			score = s.nextInt();
+			
+			if(!(0 <= score && score <= 100)) {
+				System.out.println("점수의 범위는 0~100사이 입니다.");
+				continue;
+			}
+			break;
+			
+		}
+		
+		sql = "UPDATE TBL_STUDENT SET " + dbColumn + " = " + score + " WHERE STU_NO = '" + stuNo + "'";
+		System.out.println(sql);
+		
+		return sql;
+	}
+	
 
 	//2026.02.19 복습(+)
 	public static void main(String[] args) {
@@ -135,7 +333,7 @@ public class Java9_DB {
 				addStudent(stmt);
 				
 			} else if (menu == 3) {
-				// 내일 오전에 마무리( )
+				editStudent(stmt);
 				
 			} else if (menu == 4) {
 				removeStudent(stmt);

@@ -1,4 +1,4 @@
-package day11;
+package day15;
 
 import java.awt.Container;
 import java.awt.GridLayout;
@@ -6,13 +6,15 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-public class GridLayoutEx extends JFrame{
+public class GUI4 extends JFrame{
 
-	public GridLayoutEx() {
-		setTitle("ㅋㅋㅋ");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		Container c = getContentPane();
-		c.setLayout(new GridLayout(4,4,5,5));
+	public GUI4() { //(1.~6. 은 거의 필수)
+		
+		setTitle("첫번째 화면!!"); //1.
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //2.
+		Container c = getContentPane();  //3.
+		c.setLayout(new GridLayout(4,4,5,5)); //(4,4) => 4행4열
+		
 		String str[] = {
 				"7", "8", "9", "*",
 				"4", "5", "6","-",
@@ -27,12 +29,16 @@ public class GridLayoutEx extends JFrame{
 			c.add(new JButton(str[i]));
 		}
 		
-		setSize(400, 500);
-		setVisible(true);
+		
+		setSize(300,300); //4.
+		setVisible(true); //5.
 	}
 	
+	
 	public static void main(String[] args) {
-		new GridLayoutEx();
+		
+		new GUI4();
+		
 	}
 
 }
