@@ -9,7 +9,7 @@ import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class MouseEvent4 extends JFrame{
+public class MouseEvent4 extends JFrame{ //복습(+)
 
 	public MouseEvent4() {   // 생성자 안에서 익명클래스 처리함.
 		

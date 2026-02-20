@@ -6,7 +6,7 @@ import java.awt.Container;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-public class GUI3 extends JFrame{
+public class GUI3 extends JFrame{ //복습(+)
 
 	public GUI3() { //(1.~6. 은 거의 필수)
 		

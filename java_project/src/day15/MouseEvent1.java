@@ -7,7 +7,7 @@ import java.awt.event.MouseListener;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class MouseEvent1 extends JFrame{
+public class MouseEvent1 extends JFrame{ //복습(+)
 
 	public MouseEvent1() {   // 생성자 안에서 익명클래스 처리함.
 		

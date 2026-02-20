@@ -6,7 +6,7 @@ import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-public class GUI1 extends JFrame{
+public class GUI1 extends JFrame{ //복습(+)
 
 	public GUI1() { //(1.~6. 은 거의 필수)
 		

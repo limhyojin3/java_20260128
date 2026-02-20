@@ -6,7 +6,7 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-public class GUI4 extends JFrame{
+public class GUI4 extends JFrame{ //복습(+)
 
 	public GUI4() { //(1.~6. 은 거의 필수)
 		

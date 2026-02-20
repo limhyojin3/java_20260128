@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-public class IndepClassListener extends JFrame {
+public class IndepClassListener extends JFrame { //복습(+)
 
 	public IndepClassListener() {
 		

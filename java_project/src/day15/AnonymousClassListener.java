@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-public class AnonymousClassListener extends JFrame {
+public class AnonymousClassListener extends JFrame { //복습(+)
 
 	public AnonymousClassListener() {
 		
