@@ -9,7 +9,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class CheckBoxEvent extends JFrame{
+public class CheckBoxEvent extends JFrame{ //복습(+)
 	
 	private JCheckBox[] fruits = new JCheckBox[3];
 	private String[] names = {"사과", "배", "체리"};
@@ -39,7 +39,7 @@ public class CheckBoxEvent extends JFrame{
 					//체크박스에 체크되었을때
 					if(e.getStateChange() == ItemEvent.SELECTED) {
 						
-						if(e.getItem() == fruits[0]) {  //'사과'체크박스를 선택한경우
+						if(e.getItem() == fruits[0]) {  //체크박스가 '사과'체크박스 인경우
 							sum += 100;
 							
 						} else if (e.getItem() == fruits[1]){
@@ -51,7 +51,7 @@ public class CheckBoxEvent extends JFrame{
 						
 					} else { //체크박스 해제되었을때
 						
-						if(e.getItem() == fruits[0]) {  //'사과'체크박스를 해제한경우
+						if(e.getItem() == fruits[0]) {  //체크박스가 '사과'체크박스 인경우
 							sum -= 100;
 							
 						} else if (e.getItem() == fruits[1]){

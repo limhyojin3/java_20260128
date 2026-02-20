@@ -19,9 +19,9 @@ public class AnonymousClassListener extends JFrame { //복습(+)
 		
 		
 		JButton btn = new JButton("Action");
-		c.add(btn); 
+		c.add(btn); //컨테이너에 버튼달기
 		
-		// 버튼에 Action 리스너달기
+		// 버튼에 Action 리스너달기  //복습(+)
 		btn.addActionListener(new ActionListener() {  // interface ActionListener => 익명클래스 구현  
 			
 			@Override

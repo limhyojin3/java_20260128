@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 
-public class CheckBoxEx1 extends JFrame{ 
+public class CheckBoxEx1 extends JFrame{ //복습(+)
 	
 	public CheckBoxEx1() {
 

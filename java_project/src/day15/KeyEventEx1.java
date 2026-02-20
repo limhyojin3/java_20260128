@@ -7,7 +7,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class KeyEventEx1 extends JFrame {
+public class KeyEventEx1 extends JFrame { //복습(+)
 	
 	public KeyEventEx1() {
 
@@ -20,7 +20,7 @@ public class KeyEventEx1 extends JFrame {
 		label.setBounds(50, 50, 50, 30);
 		c.add(label);
 		
-		c.addKeyListener(new KeyAdapter() {
+		c.addKeyListener(new KeyAdapter() { //컨테이너에 키어댑터 달기
 		
 			@Override
 			public void keyPressed(KeyEvent e) {

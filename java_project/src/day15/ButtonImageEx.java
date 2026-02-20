@@ -8,11 +8,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-public class ButtonImageEx extends JFrame{
+public class ButtonImageEx extends JFrame{  //복습(+)
 
 	public ButtonImageEx() {
 		
-		setTitle("시작");
+		setTitle("버튼이미지 예제");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Container c = getContentPane();
 		c.setLayout(new FlowLayout());
