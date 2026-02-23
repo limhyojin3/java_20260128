@@ -1,11 +1,11 @@
-package day15;
+package day16;
 
 import java.awt.Container;
 import java.awt.FlowLayout;
 
 import javax.swing.JFrame;
 
-public class DefaultSettingFile extends JFrame{ //기본 6줄  //복습(+)
+public class DefaultSettingFile extends JFrame{ 
 	
 	public DefaultSettingFile() {
 
