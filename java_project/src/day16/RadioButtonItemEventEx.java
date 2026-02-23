@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 
-public class RadioButtonItemEventEx extends JFrame{ //이해(+)
+public class RadioButtonItemEventEx extends JFrame{ //복습(+)
 	
 	private JRadioButton[] radio = new JRadioButton[3];   //라디오버튼 3개
 	private String[] text = { "사과", "배", "체리" };
@@ -47,10 +47,10 @@ public class RadioButtonItemEventEx extends JFrame{ //이해(+)
 			g.add(radio[i]);   //그룹에 버튼추가
 			
 			radioPanel.add(radio[i]); //라디오패널에 버튼을 달기
-			radio[i].addItemListener(new MyItemListener());  //버튼에 리스너 달기
+			radio[i].addItemListener(new MyItemListener());  //버튼에 아이템리스너 달기
 		}
 		
-		radio[2].setSelected(true); //기본 "배"버튼이 selected 됨.
+		radio[2].setSelected(true); //기본 "체리"버튼이 selected 됨.
 		
 		c.add(radioPanel, BorderLayout.NORTH);   //컨테이너에 라디오패널 달기(상단에)
 		c.add(imageLabel, BorderLayout.CENTER);  //컨테이너에 이미지라벨 달기(센터에)

@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 
-public class RadioBtnEvent extends JFrame{  //이해(+)
+public class RadioBtnEvent extends JFrame{  //복습(+)
 	
 	JRadioButton radio[] = new JRadioButton[3];
 	String text[] = {"사과", "배", "체리"};

@@ -10,7 +10,7 @@ public class DBClass { // DB클래스를 새로 작성(데이터베이스(오라
 	private Connection conn;
 	private Statement stmt = null;    //stmt = conn.createStatement();
 
-	public Statement getStmt() {
+	public Statement getStmt() {  // db 를 조회하기위해 Statement 객체 이용
 		return stmt;
 	}
 	

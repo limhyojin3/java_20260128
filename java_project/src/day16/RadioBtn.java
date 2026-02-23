@@ -9,7 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JRadioButton;
 
-public class RadioBtn extends JFrame{ 
+public class RadioBtn extends JFrame{  //복습(+)
 	
 	public RadioBtn() {
 

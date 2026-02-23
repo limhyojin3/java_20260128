@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class TextField extends JFrame{ 
+public class TextField extends JFrame{  //복습(+)
 	
 	public TextField() {
 
@@ -23,9 +23,9 @@ public class TextField extends JFrame{
 		c.add(new JTextField("컴퓨터학과", 20)); //필드의 초기값, 필드의 크기=20
 		
 		c.add(new JLabel("주소 : "));
-		JTextField addr = new JTextField(20);
-		addr.setEditable(false);
-		c.add(addr);
+		JTextField addr = new JTextField(20); //텍스트필드생성
+		addr.setEditable(false); //addr 편집을 비활성화
+		c.add(addr); //컨테이너에 텍스트필드를 달기
 		
 		
 		setSize(300, 300);

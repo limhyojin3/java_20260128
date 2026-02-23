@@ -10,7 +10,7 @@ import java.util.Random;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-public class Quiz1 extends JFrame{ 
+public class Quiz1 extends JFrame{ //복습(+)
 	
 //	JButton[] btn = new JButton[10];
 	

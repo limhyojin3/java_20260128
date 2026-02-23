@@ -10,7 +10,7 @@ import java.util.Random;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-public class Quiz2 extends JFrame{ 
+public class Quiz2 extends JFrame{  //복습(+)
 	
 	Random ran = new Random();
 	Container c;
@@ -64,8 +64,8 @@ public class Quiz2 extends JFrame{
 					String removeNum = num + "";
 					
 					if(selectBtn.getText().equals(removeNum)) {
-						c.remove(selectBtn);
-						c.repaint();
+						c.remove(selectBtn); //컨테이너에서 selectBtn 을 제거하기
+						c.repaint(); //렌더링
 						num++;
 					}
 					
@@ -77,8 +77,12 @@ public class Quiz2 extends JFrame{
 //							
 //							list.remove(num);
 //						} //list를 초기화    => 안되네.
+//						//ConcurrentModificationException
 						
-						list = new ArrayList<>(); //list 초기화.
+//						list = new ArrayList<>(); //list 초기화.
+						
+						list.clear(); //list 초기화.
+						c.revalidate(); //배치관리자가 정해져 있을땐 컨테이너를 revalidate()로 재정렬해줘야함.
 						
 						createBtn(); //게임 다시시작되도록 자기자신을 호출
 						
