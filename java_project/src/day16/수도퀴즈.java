@@ -191,7 +191,7 @@ public class 수도퀴즈 {
 	/// '오답 노트'메뉴에서는 그동안 틀린 문제들 출력
 	/// 맞춘 문제는 NOTE 테이블에서 삭제 
 	
-	
+	//-> 미리 예습정도
 	
 	public static void main(String[] args) {
 

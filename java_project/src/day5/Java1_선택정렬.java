@@ -4,11 +4,16 @@ import java.util.Arrays;
 
 public class Java1_선택정렬 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) { //2026.02.23 복습(+)
 
 		/// 선택정렬 (오름차순)
-		// 배열의 값들 중 가장 작은 수를 찾아서
-		// 맨 앞의 값과 위치 변경
+		/// 가장작은값을 찾아서 맨앞의값과 위치변경
+
+		///처음상태:                {2,3,5,1,4}
+		///1회차:   {2,3,5,1,4} -> {1,3,5,2,4}
+		///2회차:   {1,3,5,2,4} -> {1,2,5,3,4}
+		///3회차:   {1,2,5,3,4} -> {1,2,3,5,4}
+		///4회차:   {1,2,3,5,4} -> {1,2,3,4,5}
 
 		int arr[] = {2, 3, 5, 1, 4};
 		
@@ -16,7 +21,7 @@ public class Java1_선택정렬 {
 		// 1회차 {2, 3, 5, 1, 4} -> {1, 3, 5, 2, 4}
 		int minIndex = 0;
 		for(int i = 1; i < arr.length; i++) {
-			if(arr[minIndex] > arr[i]) {  //나름고정된값 > 계속바뀌는값
+			if(arr[minIndex] > arr[i]) {  //고정된값 > 변하는값
 				minIndex = i;   //실제 작은 숫자의 위치인덱스(i)
 					//minIndex(가장 작은 숫자를 가리키는 위치인덱스를 의미함)를 갱신
 			}

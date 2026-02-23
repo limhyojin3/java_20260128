@@ -4,32 +4,44 @@ import java.util.Arrays;
 
 public class Java3_선택정렬 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) { //2025.02.23 복습(+)
+		
+		/// 선택정렬(내림차순) : 가장큰값찾아서 맨앞과 위치변경
+		
+		/// 처음상태                                  {2, 3, 5, 1, 4}
+		/// 1회차				 {2, 3, 5, 1, 4} -> {5, 3, 2, 1, 4}
+		/// 2회차 0번 인덱스까지 고정 {5, 3, 2, 1, 4} -> {5, 4, 2, 1, 3} 
+		/// 3회차 1번 인덱스까지 고정 {5, 4, 2, 1, 3} -> {5, 4, 3, 1, 2}
+		/// 4회차 2번 인덱스까지 고정 {5, 4, 3, 1, 2} -> {5, 4, 3, 2, 1}
+
+		
 		
 		int arr[] = {2, 3, 5, 1, 4};
-		/// 선택정렬
-		/// 내림차순 : 가장 큰숫자가 맨 앞에.
-		// 1회차 {2, 3, 5, 1, 4} -> {5, 3, 2, 1, 4}
-		// 2회차 0번 인덱스까지 고정 {5, 3, 2, 1, 4} -> {5, 4, 2, 1, 3} 
-		// 3회차 1번 인덱스까지 고정 {5, 4, 2, 1, 3} -> {5, 4, 3, 1, 2}
-		// 4회차 2번 인덱스까지 고정 {5, 4, 3, 1, 2} -> {5, 4, 3, 2, 1}
+		System.out.println(Arrays.toString(arr));
 		
 		
-		for(int j = 0; j < arr.length - 1; j++) {
+		for(int j = 0; j < arr.length - 1; j++) { //j=0,1,2,3
+			
 			int maxIndex = j;
+			
 			for(int i = j + 1; i < arr.length; i++) {  //i 는 위치인덱스
 				
-				//검증
 				if(arr[maxIndex] < arr[i]) {
-					maxIndex = i;//가장 큰 숫자를 가리키는 위치인덱스를 갱신
+					maxIndex = i;     //가장 큰 숫자를 가리키는 위치인덱스를 갱신
 				}
-			} //for 문 종료되면 maxIndex가 갱신되어있음
+			} //maxIndex가 갱신되어있음
 			
 			int temp = arr[j]; 
 			arr[j] = arr[maxIndex]; 
 			arr[maxIndex] = temp; 
+			
 			System.out.println(Arrays.toString(arr));
 		}
+		
+		//[5, 4, 3, 2, 1]
+		
+		
+		
 		
 //		// 1회차
 //		int maxIndex = 0;
