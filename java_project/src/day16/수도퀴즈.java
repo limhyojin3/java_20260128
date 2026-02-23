@@ -66,33 +66,6 @@ public class 수도퀴즈 {
 		}
 	}
 	
-	public static ResultSet checkCountry(Statement stmt) {
-	
-		ResultSet rs = null;
-		
-		try {
-			
-			
-			System.out.print("추가할 나라 입력 : ");
-			String country = s.next();
-			
-			String sql = "SELECT * FROM TBL_QUIZ WHERE COUNTRY = '" + country + "'";
-			System.out.println(sql);
-			
-			rs = stmt.executeQuery(sql);
-			
-			
-		} catch (Exception e) {
-			
-			System.out.println(e.getMessage());
-		}
-		
-		return rs;
-		
-	}
-	
-	
-	
 	public static void addQuiz(Statement stmt) {
 		
 		try {
@@ -158,7 +131,7 @@ public class 수도퀴즈 {
 			
 			if(rs.next()) {
 				System.out.println("현재 등록된 수도명은 " + rs.getString("CAPITAL"));
-				System.out.println("수정하시겠습니까? (Y/N)");
+				System.out.print("수정하시겠습니까? (Y/N) : ");
 				
 				while(true) {
 					
@@ -188,7 +161,7 @@ public class 수도퀴즈 {
 						System.out.println("메인 메뉴로 돌아갑니다.");
 						break;
 					} else {
-						System.out.println("Y/N 중에서 선택해주세요");
+						System.out.print("Y/N 중에서 선택해주세요 : ");
 					}
 				}
 			} else {
@@ -203,6 +176,22 @@ public class 수도퀴즈 {
 	public static void removeQuiz(Statement stmt) {
 		
 	}
+	
+	/// 메인 메뉴 들어가기 전 상위 메뉴입장
+	/// 상위메뉴는 1.로그인, 2.회원가입
+	/// -로그인에 성공해야 메인 메뉴로
+
+	/// 회원가입은 아이디/PWD/이름 입력받아서 저장
+	/// -아이디는 입력받은후 중복체크
+
+	/// 메인메뉴에서는 '오답 노트'메뉴 추가
+	/// '문제풀이'메뉴에서 틀린 문제는 NOTE테이블에 추가
+	/// 단, 이미 추가된 문제는 추가하지 말것
+
+	/// '오답 노트'메뉴에서는 그동안 틀린 문제들 출력
+	/// 맞춘 문제는 NOTE 테이블에서 삭제 
+	
+	
 	
 	public static void main(String[] args) {
 
