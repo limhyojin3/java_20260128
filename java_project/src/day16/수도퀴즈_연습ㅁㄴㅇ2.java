@@ -138,7 +138,8 @@ public class 수도퀴즈_연습ㅁㄴㅇ2 {
 			int quizNum = 1;
 			int correctAns = 0;
 			
-			ArrayList<HashMap<String, String>> list = new ArrayList<>();
+			ArrayList<HashMap<String, String>> list = new ArrayList<>(); // [HashMap<><>, HashMap<><>,...] , HashMap 타입을 관리.
+//			ArrayList<String> strList = new ArrayList<>(); //[String, String...] ,String 타입을 관리  <- 참고용
 			
 			while(rs.next()) { //데이터가 있는경우
 				System.out.print(quizNum + "번) " + rs.getString("COUNTRY") + " : ");
@@ -157,6 +158,7 @@ public class 수도퀴즈_연습ㅁㄴㅇ2 {
 					map.put("QUIZ_ID", rs.getString("QUIZ_ID"));
 					map.put("COUNTRY", rs.getString("COUNTRY"));
 					map.put("CAPITAL", rs.getString("CAPITAL"));
+					
 					list.add(map);// [{"QUIZ_ID"="3", "COUNTRY"="독일", "CAPITAL"="베를린"},
 								  //  {"QUIZ_ID"="5", "COUNTRY"="중국", "CAPITAL"="베이징"},
 								  //  {"QUIZ_ID"="3", "COUNTRY"="필리핀", "CAPITAL"="마닐라"}];
@@ -175,20 +177,6 @@ public class 수도퀴즈_연습ㅁㄴㅇ2 {
 						System.out.println("이미 등록됨");
 					} else {
 						System.out.println("추가");
-						
-						sql = "INSERT INTO TBL_NOTE VALUES("
-						+ "'" + id + "', "
-						+ "'" + rs.getString("QUIZ_ID") + "', "
-						+ "'" + rs.getString("COUNTRY") + "', "
-						+ "'" + rs.getString("CAPITAL") + "')";
-						
-						int result = stmt2.executeUpdate(sql);
-						
-						if(result > 0) {
-							System.out.println("추가성공");
-						} else {
-							System.out.println("추가실패");
-						}
 					}
 					
 					
@@ -196,11 +184,37 @@ public class 수도퀴즈_연습ㅁㄴㅇ2 {
 					
 				}
 				
-			}///////----------------------->
+			} //list 채워져있음.
 			System.out.println(list);
-			for(int i = 0; i < list.size(); i++) {  //ArrayList의 크기 => ArrayList.size();
+			
+			
+			// list = [{"QUIZ_ID"="3", "COUNTRY"="독일", "CAPITAL"="베를린"},
+			//  		{"QUIZ_ID"="5", "COUNTRY"="중국", "CAPITAL"="베이징"},
+			//  		{"QUIZ_ID"="3", "COUNTRY"="필리핀", "CAPITAL"="마닐라"}];
+			//      = [HashMap<><>, HashMap<><>, HashMap<><>];
+			
+			
+			//list 사이즈만큼 반복하면서 쿼리문 작성 -> db 에 담기
+			for(int i = 0; i < list.size(); i++) {  //ArrayList의 크기 => ArrayList.size(); 
 				
+				HashMap<String, String> hashMap = list.get(i);
+				
+				sql = "INSERT INTO TBL_NOTE(USERID, QUIZ_ID, COUNTRY, CAPITAL) VALUES('"
+						+ id + "', "
+						+ hashMap.get("QUIZ_ID") + ", '" 
+						+ hashMap.get("COUNTRY") + "', '" 
+						+ hashMap.get("CAPITAL") + "')" ;
+				System.out.println(sql);
+				
+				int result = stmt.executeUpdate(sql);
+				
+				if(result > 0) {
+					System.out.println("오답노트에 추가성공");
+				} else {
+					System.out.println("오답노트에 추가실패");
+				}
 			}
+			
 			System.out.println(cnt + "개의 문제 중 총 " + correctAns + "개 맞추셨습니다." );
 			
 		} catch (Exception e) {
