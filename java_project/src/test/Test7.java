@@ -23,9 +23,11 @@ public class Test7 {
 		
 		System.out.println("===== 포인트 관리 프로그램 =====");
 		
-		
+		//HashMap<String, Object> 을 ArrayList에 담는다.
+		///HashMap<String, Object> 을 ArrayList가 관리한다.
 		ArrayList<HashMap<String, Object>> userList = new ArrayList<>();
 		//[{이름=홍길동,나이=30,포인트=0},{이름=김철수,나이=20,포인트=0},...]
+		///[HashMap, HashMap, HashMap...]
 		
 		while(true) {
 			
