@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class 배열퀴즈 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) {  //풀이(+)
 
 		// 배열에서 두번째로 큰 값 찾기. 배열에는 중복된 숫자가 없다고 가정
 		int arr[] = {3, 5, 2, 9, 4};

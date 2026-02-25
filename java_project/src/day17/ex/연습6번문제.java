@@ -1,4 +1,4 @@
-package day17;
+package day17.ex;
 
 import java.util.Arrays;
 import java.util.HashMap;

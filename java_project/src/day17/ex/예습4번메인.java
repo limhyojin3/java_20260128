@@ -1,4 +1,4 @@
-package day17;
+package day17.ex;
 
 public class 예습4번메인 {
 
